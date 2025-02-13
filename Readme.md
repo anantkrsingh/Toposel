@@ -1,10 +1,10 @@
-# 🚀 User Authentication API with Express.js & MongoDB
+# User Authentication API with Express.js & MongoDB  
 
-This is a simple user authentication API built with **Express.js**, **MongoDB**, and **JWT**. It allows users to **register**, **log in (with email or username)**, and **search for users**.
+This is a simple user authentication API built with **Express.js**, **MongoDB**, and **JWT**. It allows users to **register**, **log in (with email or username)**, and **search for users**.  
 
 ---
 
-## 📌 Features
+## Features  
 - User registration with validation  
 - Secure password hashing using **bcrypt**  
 - JWT-based authentication  
@@ -14,7 +14,8 @@ This is a simple user authentication API built with **Express.js**, **MongoDB**,
 
 ---
 
-## 📦 Installation
+## Installation  
+
 ```bash
 # Clone the repository
 git clone https://github.com/anantkrsingh/Toposel
@@ -24,65 +25,68 @@ cd Toposel
 
 # Install dependencies
 yarn install  
-⚙️ Environment Variables
-Create a .env file in the root directory and add:
+```
 
-env
-Copy
-Edit
+### Environment Variables  
+Create a `.env` file in the root directory and add:  
+
+```env
 PORT=3000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-  Running the Server
-bash
-Copy
-Edit
+```
+
+### Running the Server  
+
+```bash
 # Start the development server
 yarn dev  
+```
 
-  API Endpoints
-  User Registration
-POST /api/auth/register
-Request Body
+---
 
-json
-Copy
-Edit
+## API Endpoints  
+
+### User Registration  
+**POST** `/api/auth/register`
+
+#### Request Body
+
+```json
 {
-    "email":"anant@gmail.com",
-    "userName":"anant",
-    "name":"anant kumar",
-    "dob":"2000-02-11",
-    "country":"india",
-    "password":"1234",
-    "gender":"male"
+    "email": "anant@gmail.com",
+    "userName": "anant",
+    "name": "anant kumar",
+    "dob": "2000-02-11",
+    "country": "india",
+    "password": "1234",
+    "gender": "male"
 }
-Response:
+```
 
-json
-Copy
-Edit
+#### Response:
+
+```json
 {
   "message": "Registration successful"
 }
-🔹 User Login (Email or Username)
-POST /api/auth/login
-Request Body
+```
 
-json
-Copy
-Edit
+### User Login (Email or Username)  
+**POST** `/api/auth/login`
+
+#### Request Body
+
+```json
 {
-    "identifier":"anant",
-    
-    "password":"1234"
-   
+    "identifier": "anant",
+    "password": "1234"
 }
-Response:
+```
 
-json
-Copy
-Edit
+#### Response:
+
+```json
 {
     "message": "Login successful",
     "user": {
@@ -95,14 +99,16 @@ Edit
     },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWU0YWZlMjg2ZDgxODQyNjM0ZTI0MiIsImlhdCI6MTczOTQ3NTcxNCwiZXhwIjoxNzQwMDgwNTE0fQ.jJiCHvjYdjzaKqtYnBN1rORbdmQM-JtdCZCIuQfSMR8"
 }
-🔹 Search User
-GET /api/auth/search?query=anant
+```
 
-query can be email or username
-Response:
-json
-Copy
-Edit
+### Search User  
+**GET** `/api/auth/search?query=anant`
+
+`query` can be email or username.
+
+#### Response:
+
+```json
 {
     "message": "Users found",
     "users": [
@@ -117,25 +123,35 @@ Edit
         }
     ]
 }
-📌 Authentication
+```
+
+---
+
+## Authentication  
 All protected routes require a JWT token in the headers:
 
-json
-Copy
-Edit
+```json
 {
   "Authorization": "Bearer your_jwt_token"
 }
-📌 Tools & Technologies
-Express.js - Backend framework
-MongoDB & Mongoose - Database
-bcrypt - Password hashing
-jsonwebtoken (JWT) - Authentication
-Express Validator - Input validation
-Postman - API testing
-📌 Author
-👤 Anant Kumar
+```
 
+---
 
-📌 License
-This project is open-source and available under the MIT License.
+## Tools & Technologies  
+- **Express.js** - Backend framework  
+- **MongoDB & Mongoose** - Database  
+- **bcrypt** - Password hashing  
+- **jsonwebtoken (JWT)** - Authentication  
+- **Express Validator** - Input validation  
+- **Postman** - API testing  
+
+---
+
+## Author  
+**Anant Kumar**  
+
+---
+
+## License  
+This project is open-source and available under the **MIT License**.
